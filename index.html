@@ -33,11 +33,441 @@
 
     <!-- style CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+  
+
 
     <!-- modernizr JS
     ============================================ -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
-   
+
+
+      <!-- <link rel="stylesheet" href="assets/css/servicestyle.css"  type="text/css"> -->
+
+      <style>
+      
+ 
+ .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+         .service_title_link1 {
+
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 3;
+                text-align: center;
+           
+        } 
+
+        .service_title_link1 a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 1rem;
+            padding: 8px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            margin: 2px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .service_title_link1 a:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            position: relative;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+        }
+
+        .service-card:hover::before {
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+        }
+
+        .service-card:hover .service-title {
+            transform: translateX(-50%) translateY(-5px) scale(1.05);
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card:hover .product {
+            transform: rotateY(15deg) scale(1.1);
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        .service-card:hover .gift-boxes {
+            animation: giftFloat 0.8s ease-in-out;
+        }
+
+        .service-card:hover .suitcase {
+            transform: rotateY(10deg) scale(1.1);
+            animation: suitcaseWiggle 0.6s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: rotateY(15deg) scale(1.1);
+            }
+            50% {
+                transform: rotateY(15deg) scale(1.15) translateY(-10px);
+            }
+        }
+
+        @keyframes giftFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-5px) rotateZ(2deg);
+            }
+            75% {
+                transform: translateY(-3px) rotateZ(-2deg);
+            }
+        }
+
+        @keyframes suitcaseWiggle {
+            0%, 100% {
+                transform: rotateY(10deg) scale(1.1) rotateZ(0deg);
+            }
+            25% {
+                transform: rotateY(10deg) scale(1.1) rotateZ(2deg);
+            }
+            75% {
+                transform: rotateY(10deg) scale(1.1) rotateZ(-2deg);
+            }
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), transparent);
+            z-index: 1;
+        }
+
+        .services {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .services::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: #d4a574;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 0;
+        }
+
+        .services .product {
+            position: absolute;
+            width: 80px;
+            height: 60px;
+            background: linear-gradient(45deg, #8B4513, #D2B48C);
+            border-radius: 8px;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .services .product::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 4px;
+            background: #333;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .art-of-gifting {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .gift-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .gift-box {
+            width: 80px;
+            height: 50px;
+            background: linear-gradient(45deg, #D2691E, #F4A460);
+            border-radius: 8px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gift-box:nth-child(2), .gift-box:nth-child(3) {
+            width: 120px;
+        }
+
+        .gift-box::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 6px;
+            background: #4169E1;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        .gift-box::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 100%;
+            background: #4169E1;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .personalisation {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .suitcase {
+            width: 100px;
+            height: 140px;
+            background: linear-gradient(45deg, #2F4F2F, #228B22);
+            border-radius: 10px;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .suitcase::before {
+            content: 'LV';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .suitcase::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 8px;
+            background: #D4A574;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        .service-title {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .service-card {
+                height: 400px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            @media (max-width: 768px) {
+                .service_title_link1 {
+                    position: static;
+                    margin-top: 20px;
+                    text-align: center;
+                }
+                
+                .service-title {
+                    position: static;
+                    text-align: center;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+        }
+
+        .fade-in.animate {
+            animation: slideInScale 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .fade-in:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .fade-in:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .fade-in:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes slideInScale {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9) rotateX(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1) rotateX(0deg);
+            }
+        }
+
+        .scroll-trigger {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-trigger.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .title-animate {
+            overflow: hidden;
+        }
+
+        .title-animate h1 {
+            transform: translateY(100%);
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .title-animate.visible h1 {
+            transform: translateY(0);
+        }
+
+        .title-animate p {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.3s;
+        }
+
+        .title-animate.visible p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+     
+      </style>
+
 </head>
 
 <body>
@@ -66,16 +496,16 @@
                                             <a href="index.html" class="mainmenu__link">
                                                 <span class="mm-text">Home</span>
                                             </a>
-                                            
+
                                         </li>
                                         <li class="mainmenu__item menu-item-has-children">
                                             <a href="#" class="mainmenu__link">
                                                 <span class="mm-text">Gift/New</span>
                                                 <span class="tip">Hot</span>
                                             </a>
-                                            
+
                                         </li>
-                                         <li class="mainmenu__item menu-item-has-children has-children">
+                                        <li class="mainmenu__item menu-item-has-children has-children">
                                             <a href="#" class="mainmenu__link">
                                                 <span class="mm-text">Men</span>
                                             </a>
@@ -90,15 +520,15 @@
                                                         <span class="mm-text">item2</span>
                                                     </a>
                                                 </li>
-                                                 <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
                                                 </li>
-                                               
-                                               
-                                           
-                                              
+
+
+
+
                                             </ul>
                                         </li>
                                         <li class="mainmenu__item menu-item-has-children has-children">
@@ -106,12 +536,7 @@
                                                 <span class="mm-text">Women</span>
                                             </a>
                                             <ul class="sub-menu">
-                                                  <li>
-                                                    <a href="#">
-                                                        <span class="mm-text">item3</span>
-                                                    </a>
-                                                </li>
-                                                 <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
@@ -121,17 +546,22 @@
                                                         <span class="mm-text">item3</span>
                                                     </a>
                                                 </li>
-                                                 <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
                                                 </li>
-                                                 <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
                                                 </li>
-                                                 <li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="mm-text">item3</span>
+                                                    </a>
+                                                </li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
@@ -148,21 +578,21 @@
                                                 <span class="mm-text">Accessories</span>
                                             </a>
                                             <ul class="sub-menu">
-                                                  <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
                                                 </li>
-                                                 <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
-                                               <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
                                                 </li>
-                                                 <li>
+                                                <li>
                                                     <a href="#">
                                                         <span class="mm-text">item3</span>
                                                     </a>
@@ -184,7 +614,7 @@
                                 <a href="index.html" class="logo-box">
                                     <figure class="logo--normal">
                                         <!-- <img src="assets/img/logo/logo.svg" alt="Logo" /> -->
-                                         <h1> <strong> Bonelli </strong></h1>
+                                        <h1> <strong> Bonelli </strong></h1>
                                     </figure>
                                     <!-- <figure class="logo--transparency">
                                         <img src="assets/img/logo/logo-white.png" alt="Logo" />
@@ -774,7 +1204,8 @@
                                         data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                         data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
                                         style="z-index: 6; white-space: nowrap; font-size: 50px; line-height: 50px; font-weight: 400; color: #ffffff; letter-spacing: 5px;font-family:Montserrat;">
-                                        <strong>BIG </strong>SUMMER </div>
+                                        <strong>BIG </strong>SUMMER
+                                    </div>
 
                                     <!-- LAYER NR. 3 -->
                                     <div class="tp-caption   tp-resizeme" id="slide-1-layer-3"
@@ -790,7 +1221,8 @@
                                         data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 7;">
                                         <img src="assets/img/slider/home-01/m1-s1-1-1.png" alt=""
                                             data-ww="['692px','692px','452px','321px']"
-                                            data-hh="['438px','438px','286px','203px']" data-no-retina> </div>
+                                            data-hh="['438px','438px','286px','203px']" data-no-retina>
+                                    </div>
 
                                     <!-- LAYER NR. 4 -->
                                     <a class="tp-caption rev-btn " href="#" id="slide-1-layer-4"
@@ -967,7 +1399,7 @@
 
             <!-- catergory section start here  -->
 
-           <div class="banner-area" style="margin-top: 50px;">
+            <div class="banner-area" style="margin-top: 50px;">
                 <div class="container-fluid p-0">
                     <div class="row g-0">
                         <div class="col-lg-3 col-md-6">
@@ -1017,20 +1449,7 @@
                                     <a class="banner-link banner-overlay" href="#">Shop Now</a>
                                 </div>
                             </div>
-                            <!-- <div class="banner-box banner-type-2 banner-hover-2">
-                                <div class="banner-inner">
-                                    <div class="banner-image">
-                                        <img src="assets/img/banner/m02-banner4.jpg" alt="Banner">
-                                    </div>
-                                    <div class="banner-info">
-                                        <a class="banner-btn-2" href="#">
-                                            <span class="normal-view">Bags/New Arrival</span>
-                                            <span class="hover-view">Shop Now</span>
-                                        </a>
-                                    </div>
-                                    <a class="banner-link banner-overlay" href="#">Shop Now</a>
-                                </div>
-                            </div> -->
+                           
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="banner-box banner-type-2 banner-hover-2">
@@ -1041,7 +1460,7 @@
                                     <div class="banner-info">
                                         <a class="banner-btn-2" href="#">
                                             <span class="normal-view"> Key Chain
-      </span>
+                                            </span>
                                             <span class="hover-view">Shop Now</span>
                                         </a>
                                     </div>
@@ -1066,7 +1485,7 @@
                             <div class="text-block">
                                 <figure class="mb--30 mb-md--20 max-w-60">
                                     <!-- <img src="assets/img/logo/m01-logo.png" alt="logo"> -->
-                                     <h2 class="brand_Name"> Bonelli</h2>
+                                    <h2 class="brand_Name"> Bonelli</h2>
                                 </figure>
 
                                 <p class="font-2 heading-color font-size-16 mb--30 mb-md--20">Integer ut ligula quis
@@ -1112,12 +1531,13 @@
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                               
+
                                                 <a class="add_to_cart_btn action-btn" href="cart.html"
-                                                    data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Cart">
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"
+                                                    title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                               
+
                                             </div>
                                         </div>
                                     </figure>
@@ -1125,7 +1545,7 @@
                                         <h3 class="product-title">
                                             <a href="#">Women's Handbags</a>
                                         </h3>
-                                       
+
                                     </div>
                                 </div>
                             </div>
@@ -1144,13 +1564,14 @@
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                
+
                                                 <a class="add_to_cart_btn action-btn" href="cart.html"
-                                                    data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Cart">
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"
+                                                    title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                               
-                                               
+
+
                                             </div>
                                         </div>
                                         <span class="product-badge new">New</span>
@@ -1159,8 +1580,8 @@
                                         <h3 class="product-title">
                                             <a href="#">Women's Wallets and Small Leather Goods</a>
                                         </h3>
-                                       
-                                       
+
+
                                     </div>
                                 </div>
                             </div>
@@ -1179,21 +1600,22 @@
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                
+
                                                 <a class="add_to_cart_btn action-btn" href="cart.html"
-                                                    data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Cart">
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"
+                                                    title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                              
+
                                             </div>
                                         </div>
-                                        
+
                                     </figure>
                                     <div class="product-info">
                                         <h3 class="product-title">
                                             <a href="#"> Men's Belts</a>
                                         </h3>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -1212,27 +1634,28 @@
                                         </div>
                                         <div class="airi-product-action">
                                             <div class="product-action">
-                                                
+
                                                 <a class="add_to_cart_btn action-btn" href="cart.html"
-                                                    data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Cart">
+                                                    data-bs-toggle="tooltip" data-bs-placement="left"
+                                                    title="Add to Cart">
                                                     <i class="dl-icon-cart29"></i>
                                                 </a>
-                                              
-                                               
+
+
                                             </div>
                                         </div>
-                                        
+
                                     </figure>
                                     <div class="product-info">
                                         <h3 class="product-title">
                                             <a href="#">Key Chain </a>
                                         </h3>
-                                        
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                       
+
                     </div>
                     <div class="row">
                         <div class="col-12 text-center">
@@ -1242,6 +1665,9 @@
                 </div>
             </section>
             <!-- Trending Products area End Here -->
+
+
+
 
             <!-- partners area Start Here -->
             <div class="partners-area ptb--40 ptb-md--30 bg--gray">
@@ -1325,6 +1751,47 @@
             </div>
             <!-- partners area End Here -->
 
+
+
+ <div class="container">
+        <div class="header title-animate">
+            <h1>Bonelli Services </h1>
+            <p>Bonelli offers complementary wrapping on all orders, carefully packaged in the Maison's iconic boxes.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card services fade-in">
+                <div class="product"></div>
+                <div class="service-title">Services</div>
+                <div class="service_title_link1">
+                    <a href="#contact">Contact Us</a>
+                </div>
+            </div>
+
+            <div class="service-card art-of-gifting fade-in">
+                <div class="gift-boxes">
+                    <div class="gift-box"></div>
+                    <div class="gift-box"></div>
+                    <div class="gift-box"></div>
+                </div>
+                <div class="service-title">Art of Gifting</div>
+                <div class="service_title_link1">
+                    <a href="#gifts-women">Gifts for Women</a>
+                    <a href="#gifts-men">Gifts for Men</a>
+                </div>
+            </div>
+
+            <div class="service-card personalisation fade-in">
+                <div class="suitcase"></div>
+                <div class="service-title">Personalisation</div>
+                <div class="service_title_link1">
+                    <a href="#explore">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
             <!-- Top Collections area Start Here -->
             <section class="top-collection-area ptb--80 pt-md--55 pb-md--60">
                 <div class="container">
@@ -1332,7 +1799,8 @@
                         <div class="col-md-6">
                             <div class="text-block">
                                 <h2 class="heading-secondary mb--40 mb-md--20">Top Collections</h2>
-                                <p class="font-2 heading-color font-size-16 mb--40 mb-md--25"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, amet.</p>
+                                <p class="font-2 heading-color font-size-16 mb--40 mb-md--25"> Lorem ipsum dolor sit
+                                    amet consectetur adipisicing elit. Quia, amet.</p>
                                 <a href="#" class="heading-button mb-sm--30">View All</a>
                             </div>
                         </div>
@@ -1352,7 +1820,7 @@
                                     </div>
 
 
-                                    
+
                                     <div class="banner-box banner-type-1 banner-hover-1 mb-sm--30">
                                         <div class="banner-inner">
                                             <div class="banner-image">
@@ -1378,7 +1846,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="banner-box banner-type-1 banner-hover-1"  style="margin-top: 10px;">
+                                    <div class="banner-box banner-type-1 banner-hover-1" style="margin-top: 10px;">
                                         <div class="banner-inner">
                                             <div class="banner-image">
                                                 <img src="assets/img/banner/m11-banner8.jpg" alt="Banner">
@@ -1393,9 +1861,9 @@
 
                                 </div>
 
-                              
 
-                                
+
+
                             </div>
                         </div>
                     </div>
@@ -1403,7 +1871,7 @@
             </section>
             <!-- Top Collections area End Here -->
 
-          
+
 
             <!-- Blog area Start Here -->
             <div class="blog-area ptb--80 ptb-sm--60">
@@ -1544,8 +2012,9 @@
                             <div class="footer-widget">
                                 <div class="textwidget">
                                     <!-- <img src="assets/img/logo/logo-white.png" alt="Logo" class="mb--10"> -->
-                                     <h2 style="color:#fff">Bonelli</h2>
-                                    <p class="font-size-16 font-2 mb--20"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, molestias!.</p>
+                                    <h2 style="color:#fff">Bonelli</h2>
+                                    <p class="font-size-16 font-2 mb--20"> Lorem ipsum dolor sit amet, consectetur
+                                        adipisicing elit. Inventore, molestias!.</p>
                                     <!-- Social Icons Start Here -->
                                     <ul class="social">
                                         <li class="social__item">
@@ -1583,7 +2052,7 @@
                                 <h3 class="widget-title">Company</h3>
                                 <ul class="widget-menu">
                                     <li><a href="#">About Us</a></li>
-                                   
+
                                 </ul>
                             </div>
                         </div>
@@ -1592,7 +2061,7 @@
                                 <h3 class="widget-title">USEFUL LINKS</h3>
                                 <ul class="widget-menu">
                                     <li><a href="#">The Collections</a></li>
-                                   
+
                                     <li><a href="#">Return Policiy</a></li>
                                 </ul>
                             </div>
@@ -1601,8 +2070,8 @@
                             <div class="footer-widget">
                                 <h3 class="widget-title">SHOPPING</h3>
                                 <ul class="widget-menu">
-                                  
-                                  
+
+
                                     <li><a href="#">Man & Woman</a></li>
                                 </ul>
                             </div>
@@ -1613,18 +2082,20 @@
                                 <ul class="contact-info">
                                     <li class="contact-info__item">
                                         <i class="fa fa-phone"></i>
-                                        <span><a href="tel:+012345 6788" class="contact-info__link">(+012) 345 6788</a></span>
+                                        <span><a href="tel:+012345 6788" class="contact-info__link">(+012) 345
+                                                6788</a></span>
                                     </li>
                                     <li class="contact-info__item">
                                         <i class="fa fa-envelope"></i>
-                                        <span><a href="mailto:demo@email.com" class="contact-info__link">sales@bonelli.in</a></span>
+                                        <span><a href="mailto:demo@email.com"
+                                                class="contact-info__link">sales@bonelli.in</a></span>
                                     </li>
                                     <li class="contact-info__item">
                                         <i class="fa fa-map-marker"></i>
                                         <span>Delhi </span>
                                     </li>
                                 </ul>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -1651,7 +2122,7 @@
                                 <p>demo@example.com</p>
                             </div>
                         </div> -->
-                       
+
                     </div>
                 </div>
             </div>
@@ -1667,7 +2138,7 @@
         </footer>
         <!-- Footer End -->
 
-       
+
 
         <!-- Side Navigation Start -->
         <aside class="side-navigation" id="sideNav">
@@ -1685,8 +2156,8 @@
                     </div>
                     <div class="widget pt--30 pr--20">
                         <div class="text-widget">
-                           
-                           
+
+
                         </div>
                     </div>
                     <div class="widget">
@@ -1740,7 +2211,7 @@
                     </div>
                     <div class="widget">
                         <div class="text-widget">
-                            <p class="copyright-text">&copy; Bonelli 2025 MADE  <i class="fa fa-heart"></i> </p>
+                            <p class="copyright-text">&copy; Bonelli 2025 MADE <i class="fa fa-heart"></i> </p>
                         </div>
                     </div>
                 </div>
@@ -1957,7 +2428,7 @@
         </div>
         <!-- Modal End -->
 
-        
+
 
     </div>
     <!-- Main Wrapper End -->
@@ -1997,7 +2468,45 @@
 
     <!-- REVOLUTION ACTIVE JS FILES -->
     <script src="assets/js/revoulation.js"></script>
+     <script>
+        // Animation trigger on load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelector('.title-animate').classList.add('visible');
+            }, 200);
 
+            // Trigger fade-in animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate');
+                }, 500 + (index * 200));
+            });
+        });
+
+        // Scroll animations
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScrollAnimations() {
+            const scrollElements = document.querySelectorAll('.scroll-trigger');
+            scrollElements.forEach(el => {
+                if (isElementInViewport(el)) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', handleScrollAnimations);
+        window.addEventListener('load', handleScrollAnimations);
+    </script>
 
 </body>
 
