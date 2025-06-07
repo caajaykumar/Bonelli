@@ -11366,7 +11366,7 @@ a, button, img, input, span, .main-navigation .mainmenu__item.menu-item-has-chil
   font-size: 1.2rem; }
 
 .footer-widget .widget-title {
-  color: #ffffff;
+  color: #000000;
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 2px;
@@ -18166,10 +18166,14 @@ a:hover {
   background-color: #212121; }
 
 .bg--dark-5 {
-  background-color: #1d1d1d; }
+  background-color: #1d1d1d; 
+}
 
 .bg--black {
-  background-color: #000000; }
+  /* background-color: #000000; */
+  background-color:#fff;
+
+ }
 
 .bg--shaft {
   background-color: #242424; }
